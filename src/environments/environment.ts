@@ -3,8 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_key: '97b90ae9fb7d31d765e5d5c9e4e3efd1',
+  api_base_url: 'https://api.themoviedb.org/3/',
 };
+
+/*
+https://api.misitioweb.com/  ====> Base URL
+obtenerclientes?  ======> Endpoint
+key=gt874t37g8383g&filter=name  =======> Parametros
+*/
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

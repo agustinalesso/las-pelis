@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## ENLACES IMPORTANTES (Para alumnos)
+
+Como configurar tailwind CSS en Angular: https://dev.to/angular/setup-tailwindcss-in-angular-the-easy-way-1i5l
+
+Embla Carousel: https://www.embla-carousel.com/get-started/
+
+Tailwind CSS (Documentacion): https://tailwindcss.com/docs
+
+API TheMovieDB: https://www.themoviedb.org/
+
+Documentacion TheMovieDB: https://developers.themoviedb.org/3
