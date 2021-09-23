@@ -1,41 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PeliculasService } from 'src/app/services/peliculas.service';
 import { ICartelera, Resultados } from 'src/app/interfaces/cartelera.interface';
 
-//Carousel
-import EmblaCarousel from 'embla-carousel';
+// core version + navigation, pagination modules:
+import Swiper, { Navigation, Pagination } from 'swiper';
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// configure Swiper to use modules
+Swiper.use([Navigation, Pagination]);
 
 @Component({
   selector: 'app-caroussel',
   templateUrl: './caroussel.component.html',
   styleUrls: ['./caroussel.component.css']
 })
-export class CarousselComponent implements OnInit {
+export class CarousselComponent implements AfterViewInit {
 
   carousel : any;
   cartelera! : ICartelera;
   resultadosCartelera: Resultados[] = [];
-  
+  public swiper!: Swiper;
+
   constructor( private peliculasService : PeliculasService ) { }
 
-  ngOnInit(): void {
-    
-    const contenedor : any = document.querySelector('.embla');
-    const opciones = {loop: true,speed:20};
-    this.carousel = EmblaCarousel(contenedor,opciones)
+  ngAfterViewInit(): void {
 
     this.peliculasService.obtenerCartelera().subscribe(respuesta => {
       this.resultadosCartelera = respuesta.results;
     })
 
+    this.swiper  = new Swiper('.swiper', {
+      // Optional parameters
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+
+    });
+
   }
 
-  scrollSiguiente(){
-    this.carousel.scrollNext();
+  swipeNext(){
+    this.swiper.slideNext();
   }
 
-  scrollAnterior(){
-    this.carousel.scrollPrev();
+  swipePrevious(){
+    this.swiper.slidePrev();
   }
 
 }

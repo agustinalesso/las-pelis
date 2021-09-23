@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ICartelera } from '../interfaces/cartelera.interface';
+import { ICartelera, Resultados } from '../interfaces/cartelera.interface';
+import { PeliculasPopulares } from '../interfaces/PeliculasPopulares.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,14 @@ export class PeliculasService {
 
   obtenerCartelera(){
     return this.http.get<ICartelera>(`${this.entorno.api_base_url}movie/now_playing?api_key=${this.entorno.api_key}`)
+  }
+
+  obtenerUltimas(){
+    return this.http.get<PeliculasPopulares>(`${this.entorno.api_base_url}movie/latest?api_key=${this.entorno.api_key}`)
+  }
+
+  obtenerPopulares(){
+    return this.http.get<PeliculasPopulares>(`${this.entorno.api_base_url}movie/popular?api_key=${this.entorno.api_key}`)
   }
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PeliculasPopulares } from 'src/app/interfaces/PeliculasPopulares.interface';
+import { PeliculasService } from 'src/app/services/peliculas.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  public peliculasPopulares! : PeliculasPopulares;
 
-  ngOnInit(): void {
+  constructor(private _ps:PeliculasService) { 
+    this._ps.obtenerPopulares().subscribe(resp => {
+      this.peliculasPopulares = resp;
+    })
   }
+
+  ngOnInit(): void {}
 
 }

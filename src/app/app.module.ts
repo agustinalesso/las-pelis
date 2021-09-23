@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CarousselComponent } from './components/shared/caroussel/caroussel.component';
+import { SliderHorizontalComponent } from './components/shared/slider-horizontal/slider-horizontal.component';
+import { TarjetaPeliculaComponent } from './components/shared/tarjeta-pelicula/tarjeta-pelicula.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     NavbarComponent,
-    CarousselComponent
+    CarousselComponent,
+    SliderHorizontalComponent,
+    TarjetaPeliculaComponent
   ],
   imports: [
     BrowserModule,
