@@ -1,8 +1,8 @@
-<div class="overflow-visible">
+<div class="overflow-visible" (click)="verPelicula(pelicula.id)">
     <!-- Aca va el cover de la pelicula -->
     <div class="w-40 h-60 rounded-lg shadow-2xl relative overflow-visible" [ngStyle]="{'background-size':'cover','background-image':'url(https://image.tmdb.org/t/p/w200' + pelicula.poster_path + ')'}">
-        <div class="w-10 h-10 bg-pink-700 rounded-full absolute -bottom-3 right-3 flex items-center justify-center text-white shadow-xl">
-            68
+        <div class="w-10 h-10 bg-purple-500 rounded-full absolute -bottom-3 right-3 flex items-center justify-center font-bold text-white shadow-xl">
+            {{ pelicula.vote_average }}
         </div>
     </div>
     <span class="text-white font-bold uppercase mt-4 block">{{pelicula.title}}</span>

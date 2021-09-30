@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PeliculasNovedades } from 'src/app/interfaces/PeliculasNovedades.interface';
 import { PeliculasPopulares } from 'src/app/interfaces/PeliculasPopulares.interface';
 import { PeliculasService } from 'src/app/services/peliculas.service';
 
@@ -14,7 +15,7 @@ export class SliderHorizontalComponent implements OnInit{
   @Input() i_modo : string = '';
 
   public pelisPopulares! : PeliculasPopulares;
-  public pelisUltimas! : PeliculasPopulares;
+  public pelisUltimas! : PeliculasNovedades;
 
   constructor(private _ps:PeliculasService){
   }
@@ -52,22 +53,17 @@ export class SliderHorizontalComponent implements OnInit{
   }
   
   ngOnInit(){
-    
     if(this.i_modo === 'novedades'){
       this._ps.obtenerUltimas().subscribe(resp => {
-        //this.pelisUltimas = resp;
-        //console.log(resp);
+        this.pelisUltimas = resp;
       })
     }
 
     if(this.i_modo === 'popular'){
       this._ps.obtenerPopulares().subscribe(resp => {
         this.pelisPopulares = resp;
-        console.log(this.pelisPopulares.results);
       })
     }
-
-
   }
 
 }
