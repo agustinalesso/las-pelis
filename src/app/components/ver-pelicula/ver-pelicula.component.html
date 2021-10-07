@@ -1,6 +1,22 @@
-<div [ngStyle]="{'background-size':'cover','background-image':'url(https://image.tmdb.org/t/p/original' + pelicula.backdrop_path + ')'}" 
-    class="h-96 flex flex-column items-center justify-center uppercase bg-black">
-    <div *ngIf="pelicula">
-        <h1 class="text-white font-bold text-4xl bg-black p-4">{{ pelicula.original_title }}</h1>
+<div *ngIf="pelicula" [ngStyle]="{'background-size':'cover','background-image':'url(https://image.tmdb.org/t/p/original' + pelicula.backdrop_path + ')'}" 
+    class="w-screen h-auto relative">
+    <div class="w-screen py-20 h-auto flex flex-col items-center justify-center bg-opacity-80 bg-black">
+        <div *ngIf="pelicula" class="w-10/12 p-4 grid grid-cols-12 gap-12">
+            <div class="col-span-3">
+                <img [src]="'https://image.tmdb.org/t/p/original' + pelicula.poster_path" [alt]="pelicula.title">
+            </div>
+            <div class="col-span-9 space-y-4">
+                <div class="flex flex-row justify-between">
+                    <h1 class="text-white font-bold text-5xl uppercase">{{pelicula.title}}</h1>
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-red-700 rounded-full flex items-center justify-center font-bold text-white text-3xl shadow-xl">
+                        {{ pelicula.vote_average }}
+                    </div>
+                </div>
+                <h3 class="text-white text-sm">Director: {{director}}</h3>
+                <h3 class="text-white text-sm">Duration: {{pelicula.runtime}} min.</h3>
+                <p class="text-white text-lg">{{pelicula.overview}}</p>
+            </div>
+        </div>
     </div>
 </div>
+<app-cast *ngIf="cast" [casting]="cast.cast"></app-cast>

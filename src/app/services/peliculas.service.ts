@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ICartelera, Resultados } from '../interfaces/cartelera.interface';
+import { ICartelera } from '../interfaces/cartelera.interface';
 import { PeliculasPopulares } from '../interfaces/PeliculasPopulares.interface';
 import { PeliculasNovedades } from '../interfaces/PeliculasNovedades.interface';
 import { PeliculaModel } from '../interfaces/PeliculaModel.interface';
+import { IReviews } from '../interfaces/reviews.interface';
+import { ICredits } from '../interfaces/Reparto.interface';
+import { IRecomendations } from '../interfaces/recomendations.interface';
+import { IRelated } from '../interfaces/related.interface';
+import { IMultimedia } from '../interfaces/multimedia.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -32,25 +37,25 @@ export class PeliculasService {
   obtenerDetallePelicula(peliculaId:number){
     return this.http.get<PeliculaModel>(`${this.entorno.api_base_url}movie/${peliculaId}?api_key=${this.entorno.api_key}`)
   }
-
-  obtenerReparto(){
-
+  // => /movie/{movie_id}/credits
+  obtenerReparto(peliculaId:number){
+    return this.http.get<ICredits>(`${this.entorno.api_base_url}movie/${peliculaId}/credits?api_key=${this.entorno.api_key}`)
   }
 
-  obtenerReviews(){
-
+  obtenerReviews(peliculaId:number){
+    return this.http.get<IReviews>(`${this.entorno.api_base_url}movie/${peliculaId}/reviews?api_key=${this.entorno.api_key}`)
   }
-
-  obtenerMultimedia(){
-
+  // => /movie/{movie_id}/videos
+  obtenerMultimedia(peliculaId:number){
+    return this.http.get<IMultimedia>(`${this.entorno.api_base_url}movie/${peliculaId}/videos?api_key=${this.entorno.api_key}`)
   }
-
-  obtenerRecomendaciones(){
-
+  // => /movie/{movie_id}/recommendations
+  obtenerRecomendaciones(peliculaId:number){
+    return this.http.get<IRecomendations>(`${this.entorno.api_base_url}movie/${peliculaId}/recommendations?api_key=${this.entorno.api_key}`)
   }
-
-  obtenerRelacionados(){
-    
+  // => /movie/{movie_id}/similar
+  obtenerRelacionados(peliculaId:number){
+    return this.http.get<IRelated>(`${this.entorno.api_base_url}movie/${peliculaId}/similar?api_key=${this.entorno.api_key}`)
   }
 
 }

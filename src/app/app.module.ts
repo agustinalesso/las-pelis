@@ -12,6 +12,7 @@ import { CarousselComponent } from './components/shared/caroussel/caroussel.comp
 import { SliderHorizontalComponent } from './components/shared/slider-horizontal/slider-horizontal.component';
 import { TarjetaPeliculaComponent } from './components/shared/tarjeta-pelicula/tarjeta-pelicula.component';
 import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.component';
+import { CastComponent } from './components/shared/cast/cast.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.com
     CarousselComponent,
     SliderHorizontalComponent,
     TarjetaPeliculaComponent,
-    VerPeliculaComponent
+    VerPeliculaComponent,
+    CastComponent
   ],
   imports: [
     BrowserModule,
