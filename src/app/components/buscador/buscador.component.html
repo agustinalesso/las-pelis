@@ -1,0 +1,4 @@
+<div class="w-full h-96 flex flex-col items-center justify-center">
+    <input (keyup.enter)="buscar()" [(ngModel)]="textoBusqueda" placeholder="Busca películas o actores" type="text" class="w-8/12 px-10 py-5 outline-none focus:outline-none ring-0 ring-transparent focus:ring-transparent placeholder-gray-600 bg-transparent border-b-2 border-white border-r-0 border-l-0 border-t-0 font-bold text-4xl text-white mb-10">
+    <button (click)="buscar()" class="w-8/12 px-10 py-5 outline-none focus:outline-none ring-0 ring-transparent focus:ring-transparent bg-purple-600 text-3xl text-white uppercase rounded-lg shadow-sm hover:bg-purple-500">Buscar</button>
+</div>

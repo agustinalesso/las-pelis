@@ -13,6 +13,10 @@ import { SliderHorizontalComponent } from './components/shared/slider-horizontal
 import { TarjetaPeliculaComponent } from './components/shared/tarjeta-pelicula/tarjeta-pelicula.component';
 import { VerPeliculaComponent } from './components/ver-pelicula/ver-pelicula.component';
 import { CastComponent } from './components/shared/cast/cast.component';
+import { VerActorComponent } from './components/ver-actor/ver-actor.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ResultadoComponent } from './components/resultado/resultado.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,13 +27,17 @@ import { CastComponent } from './components/shared/cast/cast.component';
     SliderHorizontalComponent,
     TarjetaPeliculaComponent,
     VerPeliculaComponent,
-    CastComponent
+    CastComponent,
+    VerActorComponent,
+    BuscadorComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SwiperModule
+    SwiperModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

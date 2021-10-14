@@ -2,9 +2,15 @@
     <div class="w-10/12 pt-10 px-4">
         <h1 class="text-white text-5xl pb-2">Cast</h1>
         <hr class="bg-white">
-        <ul class="list-none w-full p-0 m-0">
-            <li class="w-2/12">
-                <img src="" alt="">
+        <ul class="list-none w-full grid grid-cols-12 gap-4 mt-4 p-0 m-0">
+            <li *ngFor="let actor of cast" (click)="verPerfilActor(actor.id)" class="cursor-pointer xl:col-span-4 lg:col-span-6 col-span-12 p-2 bg-gray-900 group hover:bg-gray-700 rounded-md w-full float-left flex flex-row items-center">
+                <div class="lg:w-3/12 w-2/12 mr-6">
+                    <img class="rounded-md" [src]="actor.profile_path ? filepath + actor.profile_path : './assets/no-actor.jpeg'" [alt]="actor.original_name">
+                </div>
+                <div class="lg:w-9/12 w-10/12">
+                    <h3 class="text-3xl text-gray-300 group-hover:text-white">{{ actor.original_name }}</h3>
+                    <span class="text-gray-500 group-hover:text-white">{{ actor.character }}</span>
+                </div>
             </li>
         </ul>
     </div>

@@ -1,3 +1,13 @@
 <div class="flex flex-row fixed z-10 w-full items-center justify-center h-20 bg-gray-900 shadow-xl">
-    <h1 class="text-3xl uppercase text-gray-200 font-bold">Las Pelis</h1>
+    <div class="flex flex-row justify-between items-center w-10/12">
+        <h1 (click)="goHome()" class="cursor-pointer text-3xl uppercase text-gray-200 font-bold">Las Pelis</h1>
+        <div class="flex flex-row items-center">
+            <svg (click)="goHome()" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white mr-4 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <svg (click)="goSearch()" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+    </div>
 </div>

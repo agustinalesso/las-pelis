@@ -1,0 +1,35 @@
+<div *ngIf="datosActor && imagenesActor" [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/original' + imagenFondo + ')'}" 
+    class="w-screen h-auto relative bg-cover bg-center">
+    <div class="w-screen py-20 h-auto flex flex-col items-center justify-center bg-opacity-80 bg-black">
+        <div class="w-10/12 p-4 grid grid-cols-12 gap-12">
+            <div class="lg:col-span-3 col-span-12 px-32 lg:p-0">
+                <img [src]="datosActor.profile_path ? filepath + datosActor.profile_path : './assets/no-actor.jpeg'" [alt]="datosActor.name">
+            </div>
+            <div class="lg:col-span-9 col-span-12 space-y-4">
+                <div class="flex flex-row justify-between">
+                    <h1 class="text-white font-bold text-5xl uppercase">{{datosActor.name}}</h1>
+                </div>
+                <h3 class="text-white text-sm">Birth: {{datosActor.birthday | date:'dd / MMMM / YYYY'}}</h3>
+                <p class="text-white text-lg">{{datosActor.biography}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-10/12 mx-auto" *ngIf="peliculasActor">
+    <h3 class="text-white text-3xl font-bold py-10">Known For</h3>
+    <div class="overflow-x-scroll h-auto" *ngIf="peliculasActor">
+        <div class="flex flex-row gap-4">
+            <app-tarjeta-pelicula *ngFor="let pelicula of peliculasActor.cast" [pelicula]="pelicula" ></app-tarjeta-pelicula>
+        </div>
+    </div>
+</div>
+
+<div class="w-10/12 mx-auto" *ngIf="imagenesActor">
+    <h3 class="text-white text-3xl font-bold py-10">Images</h3>
+    <ul class="list-none p-0 m-0 grid gap-4 grid-cols-12">
+        <li *ngFor="let image of imagenesActor" class="col-span-3">
+            <img class="w-full" [src]="'https://image.tmdb.org/t/p/original'+image.file_path" [alt]="image.iso_639_1">
+        </li>
+    </ul>
+</div>

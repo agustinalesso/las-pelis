@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ICredits, Cast } from 'src/app/interfaces/Reparto.interface';
+import { Router } from '@angular/router';
+import { Cast } from 'src/app/interfaces/Reparto.interface';
 
 @Component({
   selector: 'app-cast',
@@ -11,9 +12,16 @@ export class CastComponent implements OnInit {
 
   @Input('casting') cast: Cast[] = [];
 
-  constructor() { }
+  filepath:string = 'https://image.tmdb.org/t/p/original';
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    console.log(this.cast);
+  }
+
+  verPerfilActor(id:number){
+    this.router.navigate(['ver-actor',id]);
   }
 
 }
