@@ -24,6 +24,7 @@ export class VerPeliculaComponent implements OnInit {
   multimedia!: IMultimedia;
   cast!: ICredits;
   crew: Cast[] = []
+  trailerUrl!: string;
 
   director!: string | undefined;
 
@@ -37,25 +38,22 @@ export class VerPeliculaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
     this._ps.obtenerDetallePelicula(this.peliculaId).subscribe(respuesta => {
       this.pelicula = respuesta;
-      console.log(this.pelicula)
     })
 
     this._ps.obtenerRelacionados(this.peliculaId).subscribe(respuesta => {
       this.relacionadas = respuesta;
-      console.log(this.relacionadas)
+      console.log(this.relacionadas);
     })
     
     this._ps.obtenerRecomendaciones(this.peliculaId).subscribe(respuesta => {
       this.recomendaciones = respuesta;
-      console.log(this.recomendaciones)
     })
     
     this._ps.obtenerMultimedia(this.peliculaId).subscribe(respuesta => {
       this.multimedia = respuesta;
-      console.log(this.multimedia)
+      this.trailerUrl = `https://www.youtube.com/embed/${this.multimedia.results[0].key}`;
     })
     
     this._ps.obtenerReparto(this.peliculaId).subscribe(respuesta => {
@@ -63,12 +61,10 @@ export class VerPeliculaComponent implements OnInit {
       this.crew = respuesta.crew;
       const d = respuesta.crew.find(c => c.job == "Director")
       this.director = d?.name;
-      console.log(this.cast)
     })
 
     this._ps.obtenerReviews(this.peliculaId).subscribe(respuesta => {
       this.reviews = respuesta;
-      console.log(this.reviews)
     })
 
 

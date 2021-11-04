@@ -7,7 +7,7 @@
             </div>
             <div class="lg:col-span-9 col-span-12 space-y-4">
                 <div class="flex flex-row justify-between">
-                    <h1 class="text-white font-bold text-5xl uppercase">{{pelicula.title}}</h1>
+                    <h1 class="text-white font-bold text-5xl">{{pelicula.title | uppercase}}</h1>
                     <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-red-700 rounded-full flex items-center justify-center font-bold text-white text-3xl shadow-xl">
                         {{ pelicula.vote_average }}
                     </div>
@@ -15,6 +15,24 @@
                 <h3 class="text-white text-sm">Director: {{director}}</h3>
                 <h3 class="text-white text-sm">Duration: {{pelicula.runtime}} min.</h3>
                 <p class="text-white text-lg">{{pelicula.overview}}</p>
+                <ul class="list-none">
+                    <li *ngFor="let genre of pelicula.genres" class="text-white bg-purple-600 float-left mr-1 rounded-sm py-1 px-2">
+                        {{genre.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="z-0 w-full h-32 bg-gradient-to-b from-transparent to-gray-800 absolute bottom-0 left-0"></div>
+</div>
+<div class="w-10/12 mx-auto grid grid-flow-row grid-cols-12 gap-4">
+    <iframe *ngIf="trailerUrl" class="col-span-12 lg:col-span-5 h-96 w-full" [src]="trailerUrl | safeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="col-span-12 lg:col-span-7 bg-black bg-opacity-25 rounded-md p-4">
+        <!-- Recomendations -->
+        <h3 class="text-white text-3xl font-bold mb-4">Recommendations</h3>
+        <div class="overflow-x-scroll" *ngIf="relacionadas">
+            <div class="flex flex-row gap-4">
+                <app-tarjeta-pelicula *ngFor="let pelicula of relacionadas.results" [pelicula]="pelicula" ></app-tarjeta-pelicula>
             </div>
         </div>
     </div>

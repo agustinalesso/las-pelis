@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
 import { SwiperModule } from 'swiper/angular';
+import { FormsModule } from '@angular/forms';
+
+import { SafeUrlPipe } from './pipes/safeUrl.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +19,7 @@ import { CastComponent } from './components/shared/cast/cast.component';
 import { VerActorComponent } from './components/ver-actor/ver-actor.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
-import { FormsModule } from '@angular/forms';
+import { MiPropioPipePipe } from './pipes/mi-propio-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     CastComponent,
     VerActorComponent,
     BuscadorComponent,
-    ResultadoComponent
+    ResultadoComponent,
+    SafeUrlPipe,
+    MiPropioPipePipe
   ],
   imports: [
     BrowserModule,

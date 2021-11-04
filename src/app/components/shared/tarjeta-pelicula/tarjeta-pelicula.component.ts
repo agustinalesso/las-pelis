@@ -14,7 +14,13 @@ export class TarjetaPeliculaComponent {
 
   @Input() pelicula! : PeliculaPopular | PeliculasNovedad | IActorPelicula | IMovieResult;
 
-  constructor( private router:Router ) {}
+  constructor( private router:Router ) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+    }
+
+  }
 
   verPelicula(id:number){
     this.router.navigate( ['/ver-pelicula',id] )

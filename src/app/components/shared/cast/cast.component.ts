@@ -17,7 +17,6 @@ export class CastComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    console.log(this.cast);
   }
 
   verPerfilActor(id:number){
