@@ -17,6 +17,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  goSeries(){
+    this.router.navigate(['/series']);
+  }
+
   goSearch(){
     this.router.navigate(['/buscar']);
   }

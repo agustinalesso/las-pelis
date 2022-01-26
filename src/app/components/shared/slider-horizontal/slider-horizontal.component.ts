@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PeliculasNovedades } from 'src/app/interfaces/PeliculasNovedades.interface';
 import { PeliculasPopulares } from 'src/app/interfaces/PeliculasPopulares.interface';
+import { ISeriesPopulares } from 'src/app/interfaces/seriespopulares.interface';
 import { PeliculasService } from 'src/app/services/peliculas.service';
+import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
   selector: 'app-slider-horizontal',
@@ -16,8 +18,9 @@ export class SliderHorizontalComponent implements OnInit{
 
   public pelisPopulares! : PeliculasPopulares;
   public pelisUltimas! : PeliculasNovedades;
+  public seriesPopulares!: ISeriesPopulares;
 
-  constructor(private _ps:PeliculasService){
+  constructor(private _ps:PeliculasService, private _ss: SeriesService){
   }
 
   get modoPop(){
@@ -26,6 +29,14 @@ export class SliderHorizontalComponent implements OnInit{
 
   get modoNov(){
     return (this.i_modo === 'novedades')
+  }
+
+  get modoSeriesPop(){
+    return (this.i_modo === 'seriespop');
+  }
+
+  get puedeMostrarSeries(){
+    return (this.i_modo === 'seriespop' ? true : false);
   }
 
   get puedeMostrar(){
@@ -62,6 +73,12 @@ export class SliderHorizontalComponent implements OnInit{
     if(this.i_modo === 'popular'){
       this._ps.obtenerPopulares().subscribe(resp => {
         this.pelisPopulares = resp;
+      })
+    }
+
+    if(this.i_modo === 'seriespop'){
+      this._ss.getSeriesPop().subscribe(resp => {
+        this.seriesPopulares = resp;
       })
     }
   }

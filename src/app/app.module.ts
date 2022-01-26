@@ -20,6 +20,8 @@ import { VerActorComponent } from './components/ver-actor/ver-actor.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ResultadoComponent } from './components/resultado/resultado.component';
 import { MiPropioPipePipe } from './pipes/mi-propio-pipe.pipe';
+import { SeriesComponent } from './components/series/series.component';
+import { TarjetaSerieComponent } from './components/shared/tarjeta-serie/tarjeta-serie.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MiPropioPipePipe } from './pipes/mi-propio-pipe.pipe';
     BuscadorComponent,
     ResultadoComponent,
     SafeUrlPipe,
-    MiPropioPipePipe
+    MiPropioPipePipe,
+    SeriesComponent,
+    TarjetaSerieComponent
   ],
   imports: [
     BrowserModule,

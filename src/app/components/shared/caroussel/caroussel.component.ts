@@ -17,7 +17,7 @@ Swiper.use([Navigation, Pagination]);
   templateUrl: './caroussel.component.html',
   styleUrls: ['./caroussel.component.css']
 })
-export class CarousselComponent implements AfterViewInit {
+export class CarousselComponent implements OnInit {
 
   carousel : any;
   cartelera! : ICartelera;
@@ -26,7 +26,7 @@ export class CarousselComponent implements AfterViewInit {
 
   constructor( private peliculasService : PeliculasService ) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
 
     this.peliculasService.obtenerCartelera().subscribe(respuesta => {
       this.resultadosCartelera = respuesta.results;
@@ -34,12 +34,10 @@ export class CarousselComponent implements AfterViewInit {
 
     this.swiper  = new Swiper('.swiper', {
       // Optional parameters
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-
+      loop: true
     });
+
+    console.log('after swiper')
 
   }
 

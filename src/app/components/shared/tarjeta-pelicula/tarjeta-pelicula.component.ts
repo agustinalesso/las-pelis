@@ -4,6 +4,7 @@ import { IActorPelicula } from 'src/app/interfaces/actorPeliculas.interface';
 import { IMovieResult } from 'src/app/interfaces/busquedas.interface';
 import { PeliculasNovedad } from 'src/app/interfaces/PeliculasNovedades.interface';
 import { PeliculaPopular } from 'src/app/interfaces/PeliculasPopulares.interface';
+import { SeriePopular } from 'src/app/interfaces/seriespopulares.interface';
 
 @Component({
   selector: 'app-tarjeta-pelicula',

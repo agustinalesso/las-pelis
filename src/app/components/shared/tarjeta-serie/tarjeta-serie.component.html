@@ -1,0 +1,12 @@
+<div class="overflow-visible" (click)="verSerie()">
+    <!-- Aca va el cover de la pelicula -->
+    <div class="w-40 h-60 rounded-lg shadow-2xl relative overflow-visible" [ngStyle]="{'background-size':'cover','background-image':'url(https://image.tmdb.org/t/p/w200' + serie.poster_path + ')'}">
+        <div class="w-10 h-10 bg-purple-500 rounded-full absolute -bottom-3 right-3 flex items-center justify-center font-bold text-white shadow-xl">
+            {{ serie.vote_average }}
+        </div>
+    </div>
+    <div class="w-40">
+        <span class="text-white font-bold uppercase mt-4 block">{{serie.name}}</span>
+        <span class="text-white font-light text-sm block">{{serie.first_air_date}}</span>
+    </div>
+</div>
